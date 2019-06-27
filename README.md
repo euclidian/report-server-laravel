@@ -16,5 +16,5 @@ This is an ongoing project worked on <a href="http://www.tiketux.com/" target="_
 
 ## License
 
-- The Print Server Laravel is open-sourced software licensed under the [MIT license] (https://opensource.org/licenses/MIT).
+- The Print Server Laravel is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 - The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
