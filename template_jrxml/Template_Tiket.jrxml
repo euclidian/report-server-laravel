@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Template_Tiket" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="245995c5-a45a-4e4b-87de-30015f78d388">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="reservasi2"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FAFAFA">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="TesImage" uuid="987dcbe3-aa15-4fd7-8155-1195d27239eb">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="reservasi2"/>
+		<queryString language="json">
+			<![CDATA[data]]>
+		</queryString>
+		<field name="image" class="java.lang.String">
+			<property name="net.sf.jasperreports.json.field.expression" value="image"/>
+			<fieldDescription><![CDATA[image]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="DataPenumpang" uuid="59e87f5b-ed34-46b1-8180-9751f49e558a">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="reservasi2"/>
+		<queryString language="json">
+			<![CDATA[data.penumpang]]>
+		</queryString>
+		<field name="no_kursi" class="java.lang.Integer">
+			<property name="net.sf.jasperreports.json.field.expression" value="no_kursi"/>
+			<fieldDescription><![CDATA[no_kursi]]></fieldDescription>
+		</field>
+		<field name="nama" class="java.lang.String">
+			<property name="net.sf.jasperreports.json.field.expression" value="nama"/>
+			<fieldDescription><![CDATA[nama]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString language="json">
+		<![CDATA[data]]>
+	</queryString>
+	<field name="reservasi_id" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="reservasi_id"/>
+		<fieldDescription><![CDATA[reservasi_id]]></fieldDescription>
+	</field>
+	<field name="no_tiket" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="no_tiket"/>
+		<fieldDescription><![CDATA[no_tiket]]></fieldDescription>
+	</field>
+	<field name="tgl_berangkat" class="java.sql.Date">
+		<property name="net.sf.jasperreports.json.field.expression" value="tgl_berangkat"/>
+		<fieldDescription><![CDATA[tgl_berangkat]]></fieldDescription>
+	</field>
+	<field name="image" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="image"/>
+		<fieldDescription><![CDATA[image]]></fieldDescription>
+	</field>
+	<field name="penumpang" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="penumpang"/>
+		<fieldDescription><![CDATA[penumpang]]></fieldDescription>
+	</field>
+	<group name="reservasi_id">
+		<groupExpression><![CDATA[$F{reservasi_id}]]></groupExpression>
+	</group>
+	<group name="no_tiket">
+		<groupExpression><![CDATA[$F{no_tiket}]]></groupExpression>
+	</group>
+	<group name="tgl_berangkat">
+		<groupExpression><![CDATA[$F{tgl_berangkat}]]></groupExpression>
+	</group>
+	<group name="image">
+		<groupExpression><![CDATA[$F{image}]]></groupExpression>
+	</group>
+	<group name="penumpang">
+		<groupExpression><![CDATA[$F{penumpang}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="27" y="0" width="132" height="79" uuid="2d6c9256-7787-45d6-9d1e-678565a4bf6e"/>
+				<imageExpression><![CDATA[$F{image}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="222" y="15" width="123" height="42" uuid="e3ca2d15-fd54-49d5-a9b8-eccbed0ec24c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIKET]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="95" splitType="Stretch">
+			<componentElement>
+				<reportElement x="420" y="10" width="125" height="80" uuid="ab9834ab-3f5e-4b76-ab38-cc5e3a8c49b1"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$F{reservasi_id}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField>
+				<reportElement x="221" y="31" width="100" height="30" uuid="b038860a-8030-47b4-aa05-44715c14e614"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_tiket}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="31" width="146" height="30" uuid="7130735a-ff47-4597-bdda-ab65aa39ec55"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<text><![CDATA[Nomor Tiket :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="221" y="56" width="141" height="30" uuid="b2cbefda-b52b-41bc-9de4-2a390a6c78cf"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tgl_berangkat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="56" width="198" height="30" uuid="e1871fc6-31f4-4d0d-98ad-4a433c6436f7"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<text><![CDATA[Tanggal Keberangkatan :]]></text>
+			</staticText>
+		</band>
+		<band height="105">
+			<componentElement>
+				<reportElement x="23" y="2" width="507" height="88" uuid="1e99b40c-e3ba-443d-92c1-86670fe4a1bd">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DataPenumpang" uuid="26b23d11-bb27-473f-b221-bbdd943fa6a1">
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("penumpang")]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="254" uuid="30837920-1d07-47a0-a8de-9399a06e5de1">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="254" height="30" uuid="452195cb-06d4-4b7d-8c7e-eceb95285647"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="SansSerif" size="14"/>
+								</textElement>
+								<text><![CDATA[Nomor Kursi]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30">
+							<box>
+								<pen lineWidth="1.0" lineColor="#000000"/>
+								<leftPen lineWidth="1.0" lineColor="#FFFFFF"/>
+								<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+								<rightPen lineWidth="1.0" lineColor="#FFFFFF"/>
+							</box>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="254" height="30" uuid="0e36eadd-f71f-4cf1-a67d-2419493d4d2b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="SansSerif" size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{no_kursi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="253" uuid="5954e837-e156-4513-933d-b4bc7b1baa76">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="253" height="30" uuid="73b1b141-ceff-4681-8428-9809e7684f19"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="SansSerif" size="14"/>
+								</textElement>
+								<text><![CDATA[Nama Penumpang]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30">
+							<box>
+								<leftPen lineWidth="0.0"/>
+								<bottomPen lineWidth="0.0"/>
+								<rightPen lineWidth="0.0"/>
+							</box>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="253" height="30" uuid="d8f0580a-81f6-4a44-8ab0-3bfda3e54d5a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="SansSerif" size="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
