@@ -19,6 +19,8 @@ class PrintServerClientTest extends ClientTestCase
 
     public function testClientPrint()
     {
+        echo "IDNYA:".config("tokenapi.client_id");
+        echo "SECRETNYA:".config("tokenapi.client_secret");
         $data = factory(Template::class)->create([
             "user_id" => $this->user->id
         ]);

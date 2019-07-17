@@ -17,6 +17,8 @@ jobs:
       DB_USERNAME: root
       DB_PASSWORD: ''
       QUEUE_DRIVER: database
+      secure: wFv/yagRr0TvMVyJ7uRb6MRvgDoUUxvyn/tzmuL2jlNbq5/1IpGdzOC5Kgi4EQeLcct/TuCJdGLi94RsxbhojY1VyfYSBdSDIVomkTK21Y6hm8Z1IrJVn2RBDabsIOZnKhgD7uRdXfRTQ4+lGhnOo4Mvb6OCJkzS2Qaz4iNuVndQrmL2Ttkm+j3wEOlKo/07NWtbTkrNQCNEbpb8sG0fwblZzAqjb2voKwSlP1vxhkbmT5OVwQpNixsGS4wdg8dNVT+yn+mraloHNSGvgsYaq7fjjQyR8cwWKdvdfKxeOvTx9QzpfaOeuKeOb/zFRPvgTwO7OSCj+exlprR17s0TG/J36P/CbBlPAl/VO8PViyOxqz3Z0FQQjFtrDvdDi1Vqai+S55uQOpFr/uYLwrB7s53ZCf666zui7OYOX7OUwUjITT44wxkCfB/LBAgLv1k4QzCoS/OQJfEIbUn5CkC+c8oGJKtIKqOHNwHKQquwHhpVBN18fTWunDUcSSgPXadKifm1nV1WfygacGAZegtEpB8POwddc/5Mve1vUGVA31p2JU9j3oZf7a3GobXEalOJn3BysT+ivyhuoZleIL03MAlVy0M9GVCn2IeLkzQzZk6UbhBmsVzRX01nCv0+C+6XCSb7w86cudNdUUgCiuBWw3XEJMPP8bvERpIwyBtKEaM=
+      
     services:
     - mysql
     addons:
@@ -39,5 +41,3 @@ jobs:
     - php artisan passport:install
     script:
     - php vendor/bin/phpunit --coverage-text --colors=never
-env:
-  secure: wFv/yagRr0TvMVyJ7uRb6MRvgDoUUxvyn/tzmuL2jlNbq5/1IpGdzOC5Kgi4EQeLcct/TuCJdGLi94RsxbhojY1VyfYSBdSDIVomkTK21Y6hm8Z1IrJVn2RBDabsIOZnKhgD7uRdXfRTQ4+lGhnOo4Mvb6OCJkzS2Qaz4iNuVndQrmL2Ttkm+j3wEOlKo/07NWtbTkrNQCNEbpb8sG0fwblZzAqjb2voKwSlP1vxhkbmT5OVwQpNixsGS4wdg8dNVT+yn+mraloHNSGvgsYaq7fjjQyR8cwWKdvdfKxeOvTx9QzpfaOeuKeOb/zFRPvgTwO7OSCj+exlprR17s0TG/J36P/CbBlPAl/VO8PViyOxqz3Z0FQQjFtrDvdDi1Vqai+S55uQOpFr/uYLwrB7s53ZCf666zui7OYOX7OUwUjITT44wxkCfB/LBAgLv1k4QzCoS/OQJfEIbUn5CkC+c8oGJKtIKqOHNwHKQquwHhpVBN18fTWunDUcSSgPXadKifm1nV1WfygacGAZegtEpB8POwddc/5Mve1vUGVA31p2JU9j3oZf7a3GobXEalOJn3BysT+ivyhuoZleIL03MAlVy0M9GVCn2IeLkzQzZk6UbhBmsVzRX01nCv0+C+6XCSb7w86cudNdUUgCiuBWw3XEJMPP8bvERpIwyBtKEaM=
