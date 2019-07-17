@@ -11,6 +11,7 @@ jobs:
     - mysql -e 'CREATE DATABASE tiketux_package;'
     env:
       global:
+        
         - MYSQL_DATABASE: tiketux_package
         - MYSQL_ROOT_PASSWORD: secret
         - DB_HOST: 127.0.0.1
