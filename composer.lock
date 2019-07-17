@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27382c3734d6e0a50627a65915f0a723",
+    "content-hash": "f8eef01a1724097ca3aa5821af7a7696",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2920,7 +2920,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -3434,8 +3434,14 @@
             "version": "0.1",
             "source": {
                 "type": "git",
-                "url": "git@git.tiketux.id:tiketux/token.git",
-                "reference": "3b90f71c24c4fd469e8420c0921db3395eb4732e"
+                "url": "https://github.com/euclidian/token.git",
+                "reference": "cf2152948b750d37a3ed23198b4f5d3aec086620"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/euclidian/token/zipball/cf2152948b750d37a3ed23198b4f5d3aec086620",
+                "reference": "cf2152948b750d37a3ed23198b4f5d3aec086620",
+                "shasum": ""
             },
             "type": "library",
             "extra": {
@@ -3456,7 +3462,11 @@
                     "email": "m.anis@3trust.com"
                 }
             ],
-            "time": "2019-02-19T04:04:33+00:00"
+            "support": {
+                "source": "https://github.com/euclidian/token/tree/0.1",
+                "issues": "https://github.com/euclidian/token/issues"
+            },
+            "time": "2019-07-01T09:29:35+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
