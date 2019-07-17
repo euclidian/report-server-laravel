@@ -39,7 +39,7 @@ jobs:
       - mkdir storage/json
       - composer config repositories.core vcs git@github.com:euclidian/token.git
       - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
-      - composer require euclidian/token
+      - composer require tiketux/token
       # Generate an application key. Re-cache.
       - php artisan key:generate
       - php artisan config:cache
