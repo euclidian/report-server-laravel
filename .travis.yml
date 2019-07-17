@@ -1,0 +1,52 @@
+language: php
+dist: trusty
+stages:
+  - test
+  - upgrade_minor
+  - upgrade_major
+
+jobs:
+  include:
+    stage: test
+
+    before_install:
+    - mysql -e 'CREATE DATABASE tiketux_package;'
+
+    env: 
+      MYSQL_DATABASE: tiketux_package
+      MYSQL_ROOT_PASSWORD: secret
+      DB_HOST: "127.0.0.1"
+      DB_DATABASE: tiketux_package
+      DB_USERNAME: root
+      DB_PASSWORD: ""
+      QUEUE_DRIVER: database
+
+    services:
+      - mysql
+
+    addons:
+      apt:
+        sources:
+          - mysql-5.7-trusty
+        packages:
+          - mysql-server
+
+
+    before_script:  
+      - shopt -s extglob
+      - cp .env.example .env
+      - mkdir report
+      - mkdir storage/json
+      - composer config repositories.core vcs git@github.com:euclidian/token.git
+      - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+      - composer require euclidian/token
+      # Generate an application key. Re-cache.
+      - php artisan key:generate
+      - php artisan config:cache
+      - php artisan migrate
+      - php artisan passport:install
+
+    script:
+      # run laravel tests
+      - php vendor/bin/phpunit --coverage-text --colors=never
+
