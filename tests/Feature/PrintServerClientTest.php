@@ -19,6 +19,7 @@ class PrintServerClientTest extends ClientTestCase
 
     public function testClientPrint()
     {
+        echo "TESTING_ENV: ".env("TESTING_ENV");
         echo "IDNYA:".config("tokenapi.client_id");
         echo "SECRETNYA:".config("tokenapi.client_secret");
         $data = factory(Template::class)->create([
