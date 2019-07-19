@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-btn @click="addtemplate = true" fixed dark fab bottom right color="blue">
+    <v-btn @click="addtemplate = true" fixed dark fab bottom right color="primary">
       <v-icon>add</v-icon>
     </v-btn>
     <v-snackbar v-model="snackbar" :bottom="true" :right="true" :timeout="4000">

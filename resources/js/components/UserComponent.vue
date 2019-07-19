@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-btn @click="adduser = true" fixed dark fab bottom right color="blue">
+    <v-btn @click="adduser = true" fixed dark fab bottom right color="primary">
       <v-icon>add</v-icon>
     </v-btn>
     <v-snackbar v-model="snackbar" :bottom="true" :right="true" :timeout="4000">
@@ -56,12 +56,8 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <h3 class="headline mb-10 primary--text">Daftar Pengguna</h3>
     <v-card>
-      <v-card-title primary-title>
-        <div>
-          <h3 class="headline mb-0">Daftar Pengguna</h3>
-        </div>
-      </v-card-title>
       <v-data-table
         :rows-per-page-items="rowsPerPageItems"
         :pagination.sync="pagination"
@@ -74,43 +70,38 @@
           <td>{{ props.item.email }}</td>
           <td>{{ props.item.secretid }}</td>
           <td>{{ props.item.secret }}</td>
-          <td v-if="props.item.id==saya.id">
-            <v-tooltip top>
+          <td>
+            <v-tooltip top v-if="props.item.id==saya.id">
               <template v-slot:activator="{ on }">
-                <v-btn fab dark small color="primary" v-on="on">
+                <v-btn fab flat dark small color="primary" v-on="on">
                   <v-icon dark>accessibility</v-icon>
                 </v-btn>
               </template>
               <span>Saya</span>
             </v-tooltip>
-          </td>
-          <td v-else-if="props.item.admin==1">
-            <v-tooltip top>
+            <v-tooltip top v-else-if="props.item.admin==1">
               <template v-slot:activator="{ on }">
-                <v-btn fab dark small color="primary" @click="toAdmin(props.item.id)" v-on="on">
+                <v-btn fab flat dark small color="primary" @click="toAdmin(props.item.id)" v-on="on">
                   <v-icon dark>done</v-icon>
                 </v-btn>
               </template>
               <span>Admin</span>
             </v-tooltip>
-          </td>
-          <td v-else>
-            <v-tooltip top>
+            <v-tooltip top v-else>
               <template v-slot:activator="{ on }">
-                <v-btn fab dark small color="error" @click="toAdmin(props.item.id)" v-on="on">
+                <v-btn fab dark flat small color="error" @click="toAdmin(props.item.id)" v-on="on">
                   <v-icon dark>close</v-icon>
                 </v-btn>
               </template>
               <span>Bukan Admin</span>
             </v-tooltip>
-          </td>
-          <td>
             <v-tooltip top>
               <template v-slot:activator="{ on }">
                 <v-btn
                   fab
                   dark
                   small
+                  flat
                   color="orange"
                   @click="generateToken(props.item.id)"
                   v-on="on"
@@ -140,8 +131,7 @@ export default {
         { text: "Email", value: "email" },
         { text: "Secret ID", value: "secretid" },
         { text: "Secret", value: "secret" },
-        { value: "admin" },
-        { value: "id" }
+        { text: "Action", value: "id" }
       ],
       rowsPerPageItems: [25, 50, 75, 100],
       pagination: {

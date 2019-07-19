@@ -20,12 +20,8 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <h3 class="headline mb-10 primary--text">Daftar Print</h3>
     <v-card>
-      <v-card-title primary-title>
-        <div>
-          <h3 class="headline mb-0">Daftar Print</h3>
-        </div>
-      </v-card-title>
       <v-data-table
         :headers="headers"
         :items="prints.data"
@@ -39,7 +35,7 @@
           <td>
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-btn fab dark small color="orange" @click="showJSON(props.item.json)" v-on="on">
+                <v-btn fab dark small flat color="orange" @click="showJSON(props.item.json)" v-on="on">
                   <v-icon dark>code</v-icon>
                 </v-btn>
               </template>
@@ -48,7 +44,7 @@
             <a :href="baseurl+ props.item.url" target="_blank">
               <v-tooltip top>
                 <template v-slot:activator="{ on }">
-                  <v-btn fab dark small color="success" v-on="on">
+                  <v-btn fab dark flat small color="success" v-on="on">
                     <v-icon dark>save_alt</v-icon>
                   </v-btn>
                 </template>

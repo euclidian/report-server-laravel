@@ -20,12 +20,8 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <h3 class="headline mb-10 primary--text">Daftar Print Transaction</h3>
     <v-card>
-      <v-card-title primary-title>
-        <div>
-          <h3 class="headline mb-0">Daftar Print Transaction</h3>
-        </div>
-      </v-card-title>
       <v-data-table
         :headers="headers"
         :items="print_transactions.data"

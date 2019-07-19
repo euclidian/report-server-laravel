@@ -11647,5 +11647,21 @@ a.text-dark:focus {
 
 a.v-list__tile:hover {
   text-decoration: none;
+  color: white;
+}
+
+div.v-list__tile__title {
+  font-size: 16px;
+}
+
+.theme--light.v-datatable thead th.column,
+.theme--light.v-datatable thead th.column.sortable.active .v-icon,
+.theme--light.v-datatable thead th.column.sortable:hover {
+  background-color: #EF5350 !important;
+  color: white !important;
+}
+
+.v-datatable td {
+  font-size: 15px !important;
 }
 
