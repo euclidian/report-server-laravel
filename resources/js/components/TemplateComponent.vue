@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-btn @click="addtemplate = true" fixed dark fab bottom right color="blue">
+    <v-btn @click="addtemplate = true" fixed dark fab bottom right color="primary">
       <v-icon>add</v-icon>
     </v-btn>
     <v-snackbar v-model="snackbar" :bottom="true" :right="true" :timeout="4000">
@@ -42,7 +42,7 @@
                   type="file"
                   accept=".jrxml, .jasper"
                   @change="handleFileUpload"
-                >
+                />
               </v-flex>
             </v-layout>
           </v-container>
@@ -54,12 +54,8 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <h3 class="headline mb-10 primary--text">Daftar Template</h3>
     <v-card>
-      <v-card-title primary-title>
-        <div>
-          <h3 class="headline mb-0">Daftar Template</h3>
-        </div>
-      </v-card-title>
       <v-data-table
         :rows-per-page-items="rowsPerPageItems"
         :pagination.sync="pagination"
@@ -75,7 +71,15 @@
           <td>
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-btn fab dark small color="error" @click="showDelete(props.item.id)" v-on="on">
+                <v-btn
+                  fab
+                  dark
+                  flat
+                  small
+                  color="error"
+                  @click="showDelete(props.item.id)"
+                  v-on="on"
+                >
                   <v-icon dark>delete</v-icon>
                 </v-btn>
               </template>
@@ -101,7 +105,7 @@ export default {
         { text: "Nama File", value: "filename" },
         { text: "Nama Asli File", value: "realfilename" },
         { text: "Tanggal Upload", value: "created_at" },
-        { text: "Action", value: "id" }
+        { text: "Action",sortable:false, value: "id" }
       ],
       rowsPerPageItems: [25, 50, 75, 100],
       pagination: {
@@ -109,15 +113,15 @@ export default {
       },
       addtemplate: false,
       templates: [],
-      IdTemplate:null,
-      isDelete:false,
+      IdTemplate: null,
+      isDelete: false,
       loading: false,
       snackbar: false,
       TemplateFile: null
     };
   },
   methods: {
-    showDelete(id){
+    showDelete(id) {
       this.IdTemplate = id;
       this.isDelete = true;
     },
@@ -160,10 +164,10 @@ export default {
           that.addtemplate = false;
         });
     },
-    deleted(){
+    deleted() {
       var that = this;
       axios
-        .get("api/deleteJRXML/"+this.IdTemplate)
+        .get("api/deleteJRXML/" + this.IdTemplate)
         .then(function() {
           that.isDelete = false;
           that.snackbar = true;
