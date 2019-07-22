@@ -47,6 +47,7 @@ class PrintServerClientTest extends ClientTestCase
                 ]
             ]
         ]);
+        dd($response);
         \File::deleteDirectory(config("report.dir") . "/user_id_" . $data->user_id);
         $response
             ->assertStatus(200)
