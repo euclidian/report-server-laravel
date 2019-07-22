@@ -1,6 +1,7 @@
 language: php
 
-dist: trusty
+dist: xenial
+jdk: openjdk-8-jdk
 stages:
 - test
 - upgrade_minor
