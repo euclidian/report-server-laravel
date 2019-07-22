@@ -1,7 +1,6 @@
 language: php
-php:
-  - "7.1.3"
-dist: xenial
+
+dist: trusty
 stages:
 - test
 - upgrade_minor
@@ -10,7 +9,6 @@ jobs:
   include:
     stage: test
     before_install:
-    - sudo apt-get install openjdk-8-jdk
     - mysql -e 'CREATE DATABASE tiketux_package;'
     env:
       MYSQL_DATABASE: tiketux_package
