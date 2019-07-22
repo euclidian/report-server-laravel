@@ -10,8 +10,6 @@ jobs:
     stage: test
     before_install:
     - sudo apt-get install openjdk-8-jdk
-    - sudo update-java-alternatives --list
-    - sudo update-alternatives --config java
     - java -version
     - javac -version
     - mysql -e 'CREATE DATABASE tiketux_package;'
