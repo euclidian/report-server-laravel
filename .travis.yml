@@ -32,7 +32,6 @@ jobs:
     - cp .env.example .env
     - mkdir report
     - mkdir storage/json
-    - composer config repositories.core vcs git@github.com:euclidian/token.git
     - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
     - npm install
     - composer require tiketux/token
