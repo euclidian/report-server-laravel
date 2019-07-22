@@ -1,10 +1,9 @@
-import TemplateComponent from "../../resources/js/components/TemplateComponent";
+import TemplateComponent from "../../resources/js/components/TemplateComponent.vue";
 
 import { mount } from "@vue/test-utils";
 import expect from "expect";
-// import Vuetify from 'vuetify';
-// var Vue = require("vue");
-// Vue.use(Vuetify);
+import './fake-component-vuetify.js'
+
 describe("TemplateComponent", () => {
     let component;
 
