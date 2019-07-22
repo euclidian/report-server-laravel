@@ -10,6 +10,7 @@ jobs:
   include:
     stage: test
     before_install:
+    - sudo apt-get install openjdk-8-jdk
     - mysql -e 'CREATE DATABASE tiketux_package;'
     env:
       MYSQL_DATABASE: tiketux_package
