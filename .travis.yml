@@ -1,5 +1,7 @@
-language: php
-dist: trusty
+language: java
+
+dist: xenial
+jdk: openjdk8
 stages:
 - test
 - upgrade_minor
@@ -30,8 +32,8 @@ jobs:
     - cp .env.example .env
     - mkdir report
     - mkdir storage/json
-    - composer config repositories.core vcs git@github.com:euclidian/token.git
     - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+    - npm install
     - composer require tiketux/token
     - php artisan key:generate
     - php artisan config:cache
@@ -39,3 +41,4 @@ jobs:
     - php artisan passport:install
     script:
     - php vendor/bin/phpunit --coverage-text --colors=never
+    - npm run test

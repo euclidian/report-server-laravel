@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <div>
     <v-btn @click="addtemplate = true" fixed dark fab bottom right color="primary">
       <v-icon>add</v-icon>
     </v-btn>
@@ -89,7 +89,7 @@
         </template>
       </v-data-table>
     </v-card>
-  </v-app>
+  </div>
 </template>
 
 <script>
