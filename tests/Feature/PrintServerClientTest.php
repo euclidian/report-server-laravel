@@ -116,7 +116,7 @@ class PrintServerClientTest extends ClientTestCase
             "user_id" => $this->user->id
         ]);
         $response = $this->get('/api/client/allUnPrinted');
-        
+
         $response
             ->assertStatus(200)
             ->assertJsonStructure([
@@ -131,6 +131,30 @@ class PrintServerClientTest extends ClientTestCase
                         "updated_at",
                         "json",
                         "url"
+                    ]
+                ]
+            ]);
+    }
+
+    public function testClientAllJRXML()
+    {
+        factory(\App\Template::class)->create([
+            "user_id" => $this->user->id
+        ]);
+        $response = $this->get('/api/client/allJRXML');
+
+        $response
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                "statusCode",
+                "data" => [
+                    [
+                        "id",
+                        "filename",
+                        "realfilename",
+                        "user_id",
+                        "created_at",
+                        "updated_at"
                     ]
                 ]
             ]);

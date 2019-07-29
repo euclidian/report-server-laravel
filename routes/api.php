@@ -39,6 +39,8 @@ Route::get('/client/allPrintTransaction', "Api\Client\PrintApi@allPrintTransacti
 Route::get('/client/allUnPrinted', "Api\Client\PrintApi@allUnPrinted");
 Route::get('/client/download/{id}', "Api\Client\PrintApi@download");
 
+Route::get('/client/allJRXML', "Api\Client\JRXMLController@allJRXML");
+
 Route::get('/allJRXMLGallery', "Api\Web\JRXMLGalleryController@allJRXML");
 Route::get('/detailJRXMLGallery/{id}', "Api\Web\JRXMLGalleryController@detailJRXML");
 Route::post('/addJRXMLGallery', "Api\Web\Admin\JRXMLGalleryController@addJRXML");
