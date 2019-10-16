@@ -15,6 +15,9 @@ class Printed extends Model
     protected $fillable = ["image_id", "template_id", "user_id", "json"];
     public static function print($encode, $type, $templateID, $userId)
     {
+        if ($type != "pdf" && $type != "xls") {
+            abort(422, "Tipe tidak sesuai.");
+        }
         $templateName             = Template::findOrFail($templateID)->realfilename;
         $date = new DateTime();
         $json = json_encode($encode);
@@ -52,8 +55,8 @@ class Printed extends Model
             'multipart' => [
                 [
                     'name'     => 'image',
-                    'contents' => fopen($output . ".pdf", 'r'),
-                    'filename' => $output . ".pdf"
+                    'contents' => fopen($output . "." . $type, 'r'),
+                    'filename' => $output . "." . $type
                 ]
             ],
             'headers' => [
@@ -84,7 +87,8 @@ class Printed extends Model
         return $this->belongsTo("App\Template", "template_id", "id");
     }
 
-    public function transaction(){
-        return $this->hasOne("App\PrintTransaction","printed_id","id");
+    public function transaction()
+    {
+        return $this->hasOne("App\PrintTransaction", "printed_id", "id");
     }
 }
