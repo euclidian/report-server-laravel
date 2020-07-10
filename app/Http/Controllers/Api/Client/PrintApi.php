@@ -27,6 +27,12 @@ class PrintApi extends Controller
         $type                     = $request->input('type');
         $encode                   = $request->input('json');
 
+        $client = $this->getCurrentClient($request);
+
+        if ($client->personal_access_client != 1) {
+            abort(401, "Client credentials fail.");
+        }
+
         $data = Printed::print($encode, $type, $templateID, $this->getCurrentClient($request)->user_id);
 
         $response["statusCode"] = 200;
