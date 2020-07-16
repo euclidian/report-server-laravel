@@ -53,16 +53,16 @@ class PrintApi extends Controller
         $client_id = $request->client_id;
         $client_secret = $request->client_secret;
 
-        $client = DB::table("oauth_client")
+        $client = DB::table("oauth_clients")
             ->where("id", $client_id)
             ->where("secret", $client_secret)
             ->where("user_id", "!=", null)
-            ->where("revoked", 1)
+            ->where("revoked", 0)
             ->where("personal_access_client", 0)
             ->where("password_client", 0)->first();
 
         if (!$client) {
-            abort(401, "Client credentials fail.");
+            abort(404, "Client credentials fail.");
         }
 
         $user = User::findOrFail($client->user_id);

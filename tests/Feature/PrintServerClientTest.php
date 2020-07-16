@@ -75,8 +75,7 @@ class PrintServerClientTest extends ClientTestCase
             ->where("personal_access_client", 0)
             ->where("user_id", $this->user->id)
             ->first();
-        $Credentials->revoked = 1;
-        $Credentials->save();
+
         mkdir(config("report.dir") . "/user_id_" . $data->user_id);
         copy(base_path("tests/Test.jrxml"), config("report.dir") . "/user_id_" . $data->user_id . "/" . $data->realfilename);
 
