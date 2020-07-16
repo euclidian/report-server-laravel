@@ -33,6 +33,7 @@ Route::get('/getUser', 'Api\Web\ProfilController@getUser');
 Route::post('/updatePassword', 'Api\Web\ProfilController@updatePassword');
 
 Route::post('/client/print', "Api\Client\PrintApi@print");
+Route::post('/client/print_client', "Api\Client\PrintApi@print");
 Route::post('/client/print_transaction', "Api\Client\PrintApi@printTransaction");
 Route::get('/client/allPrintTransaction', "Api\Client\PrintApi@allPrintTransaction");
 
