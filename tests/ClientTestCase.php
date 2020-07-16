@@ -29,7 +29,7 @@ class ClientTestCase extends TestCase
         ]);
 
         $CR = new ClientRepository;
-        $CR->create($this->user->id, $this->user->name, "localhost");
+        $CR->create($this->user->id, $this->user->name, "localhost", true);
         $Credentials = DB::table("oauth_clients")->where("password_client", 0)->where("user_id", $this->user->id)->first();
 
         $token = json_decode($this->post("/oauth/token", [
