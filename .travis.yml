@@ -40,5 +40,5 @@ jobs:
     - php artisan migrate
     - php artisan passport:install
     script:
-    - php vendor/bin/phpunit --coverage-text --colors=never
+    - php vendor/bin/phpunit --coverage-text --colors=never --testdox
     - npm run test

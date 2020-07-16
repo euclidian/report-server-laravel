@@ -58,13 +58,11 @@ class PrintApi extends Controller
             ->where("secret", $client_secret)
             ->where("user_id", "!=", null)
             ->where("personal_access_client", 0)
-            ->where("password_client", 0)->get();
+            ->where("password_client", 0)->first();
 
-        if (count($client) <= 0) {
+        if (!$client) {
             abort(401, "Client credentials fail.");
         }
-
-        $client = $client[0];
 
         $user = User::findOrFail($client->user_id);
 
