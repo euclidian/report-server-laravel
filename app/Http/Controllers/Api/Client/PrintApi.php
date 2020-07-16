@@ -57,6 +57,7 @@ class PrintApi extends Controller
             ->where("id", $client_id)
             ->where("secret", $client_secret)
             ->where("user_id", "!=", null)
+            ->where("revoked", 1)
             ->where("personal_access_client", 0)
             ->where("password_client", 0)->first();
 
