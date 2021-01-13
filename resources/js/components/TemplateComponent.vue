@@ -18,7 +18,7 @@
         </v-card-text>
         <v-card-actions v-if="!loading">
           <v-spacer></v-spacer>
-          <v-btn color="error" flat @click="isDelete = false">Batal</v-btn>
+          <v-btn color="error" flat @click="closeDialogs">Batal</v-btn>
           <v-btn color="error" @click="deleted">Hapus</v-btn>
         </v-card-actions>
       </v-card>
@@ -49,7 +49,7 @@
         </v-card-text>
         <v-card-actions v-if="!loading">
           <v-spacer></v-spacer>
-          <v-btn color="error" flat @click="addtemplate = false">Batal</v-btn>
+          <v-btn color="error" flat @click="closeDialogs">Batal</v-btn>
           <v-btn color="primary" flat @click="save" v-if="TemplateFile != null ">Simpan</v-btn>
         </v-card-actions>
       </v-card>
@@ -84,6 +84,22 @@
                 </v-btn>
               </template>
               <span>Hapus Template</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  fab
+                  dark
+                  flat
+                  small
+                  color="green"
+                  @click="showReupload(props.item.id)"
+                  v-on="on"
+                >
+                  <v-icon dark>upload</v-icon>
+                </v-btn>
+              </template>
+              <span>Upload Ulang</span>
             </v-tooltip>
           </td>
         </template>
@@ -121,9 +137,18 @@ export default {
     };
   },
   methods: {
+    showReupload(id) {
+      this.IdTemplate = id;
+      this.addtemplate = true;
+    },
     showDelete(id) {
       this.IdTemplate = id;
       this.isDelete = true;
+    },
+    closeDialogs() {
+      this.IdTemplate = null;
+      this.isDelete = false;
+      this.addtemplate = false;
     },
     handleFileUpload(e) {
       this.TemplateFile = e.target.files[0];
@@ -146,6 +171,9 @@ export default {
       let formData = new FormData();
       var that = this;
       that.isLoading = true;
+      if(this.IdTemplate){
+        formData.append("id", this.IdTemplate);
+      }
       formData.append("template", this.TemplateFile);
       axios
         .post("api/addJRXML", formData, {

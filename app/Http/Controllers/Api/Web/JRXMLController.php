@@ -16,7 +16,7 @@ class JRXMLController extends Controller
 
     public function allJRXML()
     {
-        $data = Template::where("user_id",Auth::user()->id)->get();
+        $data = Template::where("user_id", Auth::user()->id)->get();
         $response["statusCode"] = 200;
         $response["data"] = $data;
         return response()->json($response);
@@ -29,12 +29,18 @@ class JRXMLController extends Controller
         ]);
         $file = $r->file('template');
         $nama_file = str_random(20) . "." . $file->getClientOriginalExtension();
-        Template::create([
-            "filename"  =>  $file->getClientOriginalName(),
-            "realfilename" => $nama_file,
-            "user_id" => Auth::user()->id
-        ]);
-        $file->move(config("report.dir"). "/user_id_" . Auth::user()->id, $nama_file);
+
+        $data = new Template();
+        if ($r->id) {
+            $data = Template::findOrFail($r->id);
+        }
+
+        $data->filename =  $file->getClientOriginalName();
+        $data->realfilename = $nama_file;
+        $data->user_id = Auth::user()->id;
+        $data->save();
+
+        $file->move(config("report.dir") . "/user_id_" . Auth::user()->id, $nama_file);
         $response["statusCode"] = 200;
         $response["data"] = $nama_file;
         return response()->json($response);
