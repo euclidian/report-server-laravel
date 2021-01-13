@@ -19,6 +19,7 @@ jobs:
       DB_USERNAME: root
       DB_PASSWORD: ''
       QUEUE_DRIVER: database
+      COMPOSER_MEMORY_LIMIT: -1
     services:
     - mysql
     addons:
